@@ -15,8 +15,21 @@
   --pale-blue: hsl(236, 100%, 87%);
 }
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
+  background-color: var(--very-dark-blue);
+  color: hsl(0, 0%, 100%);
   font-family: 'Rubik', sans-serif;
+}
+
+.container {
+  margin: 25px auto;
+  width: 80%;
 }
 
 @media (min-width: 1440px) {}
