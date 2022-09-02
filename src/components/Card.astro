@@ -1,0 +1,54 @@
+---
+const { backgroundColor, className } = Astro.props;
+
+let bgColor = 'default-background';
+if (backgroundColor === 'orange') {
+  bgColor = 'orange';
+} else if (backgroundColor === 'light-blue') {
+  bgColor = 'light-blue';
+} else if (backgroundColor === 'red') {
+  bgColor = 'red';
+} else if (backgroundColor === 'green') {
+  bgColor = 'green';
+} else if (backgroundColor === 'purple') {
+  bgColor = 'purple';
+} else if (backgroundColor === 'light-purple') {
+  bgColor = 'light-purple';
+} else if (backgroundColor === 'yellow') {
+  bgColor = 'yellow';
+}
+---
+
+<div class={`card ${bgColor} ${className}`}>
+  <slot />
+</div>
+
+<style>
+  .card {
+    border-radius: 32px 35px;
+  }
+  .default-background {
+    background-color: var(--dark-blue);
+  }
+  .orange {
+    background-color: var(--light-red__work);
+  }
+  .light-blue {
+    background-color: var(--soft-blue);
+  }
+  .red {
+    background-color: var(--light-red__study);
+  }
+  .green {
+    background-color: var(--lime-green);
+  }
+  .purple {
+    background-color: var(--violet);
+  }
+  .light-purple {
+    background-color: var(--blue);
+  }
+  .yellow {
+    background-color: var(--soft-orange);
+  }
+</style>
