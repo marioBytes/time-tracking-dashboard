@@ -1,0 +1,84 @@
+---
+import Card from './Card.astro';
+
+import jeremy from '../images/image-jeremy.png';
+---
+
+<article class="card-container">
+  <Card backgroundColor="light-purple" className="top-card">
+    <div class="avatar-container">
+      <img src={jeremy} alt="" class="avatar" />
+    </div>
+    <div>
+      <p class="title">Report for</p>
+      <h1 class="username">Jeremy Robson</h1>
+    </div>
+  </Card>
+  <Card className="bottom-card">
+    <div class="selection">
+      <p class="">Daily</p>
+      <p class="">Weekly</p>
+      <p class="active">Monthly</p>
+    </div>
+  </Card>
+</article>
+
+<style>
+  .card-container {
+    position: relative;
+  }
+  .top-card,
+  .bottom-card {
+    position: absolute;
+    width: 100%;
+  }
+  .top-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 133px;
+    z-index: 2;
+  }
+  .top-card div:nth-child(1) {
+    width: 64px;
+  }
+  .top-card div:nth-child(2) {
+    width: auto;
+  }
+  .avatar-container {
+    width: 67px;
+  }
+  .avatar {
+    border-radius: 50%;
+    border: 3px solid #ffffff;
+    height: 64px;
+    width: 64px;
+  }
+  .title {
+    font-weight: 300;
+    font-size: 0.938rem;
+  }
+  .username {
+    font-weight: 400;
+    font-size: 1.5rem;
+  }
+  .bottom-card {
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+    height: 70px;
+    margin-top: 120px;
+    z-index: 1;
+  }
+  .selection {
+    align-items: center;
+    color: var(--desaturated-blue);
+    display: flex;
+    height: 70px;
+    justify-content: space-around;
+    margin-top: 5px;
+  }
+  .active {
+    color: #ffffff;
+  }
+</style>
