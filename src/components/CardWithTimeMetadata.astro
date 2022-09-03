@@ -1,0 +1,114 @@
+---
+import Card from './Card.astro';
+
+import Ellipsis from '../images/icon-ellipsis.svg';
+import Exercise from '../images/icon-exercise.svg';
+import Play from '../images/icon-play.svg';
+import SelfCare from '../images/icon-self-care.svg';
+import Social from '../images/icon-social.svg';
+import Study from '../images/icon-study.svg';
+import Work from '../images/icon-work.svg';
+
+const { title, timeframe } = Astro.props;
+
+let cardImage;
+let backgroundColor = '';
+if (title === 'Exercise') {
+  cardImage = Exercise;
+  backgroundColor = 'green';
+} else if (title === 'Play') {
+  cardImage = Play;
+  backgroundColor = 'light-blue';
+} else if (title === 'Self Care') {
+  cardImage = SelfCare;
+  backgroundColor = 'yellow';
+} else if (title === 'Social') {
+  cardImage = Social;
+  backgroundColor = 'purple';
+} else if (title === 'Study') {
+  cardImage = Study;
+  backgroundColor = 'red';
+} else if (title === 'Work') {
+  cardImage = Work;
+  backgroundColor = 'orange';
+}
+---
+
+<article class="card-container">
+  <!-- top card -->
+  <Card className="top-card" backgroundColor={backgroundColor}>
+    <div>
+      <img src={cardImage} alt="" width="78" height="78" class="card-icon" />
+    </div>
+  </Card>
+  <!-- bottom card -->
+  <Card className="bottom-card">
+    <div class="bottom-card__content-container">
+      <p class="title">{title}</p>
+      <img src={Ellipsis} alt="" width="21" height="5" />
+    </div>
+    <div class="bottom-card__content-container">
+      <h1 class="current-hours">{timeframe.current}hrs</h1>
+      <p class="previous-hours">Last Week - {timeframe.previous}hrs</p>
+    </div>
+  </Card>
+</article>
+
+<style>
+  .card-container {
+    position: relative;
+  }
+  .top-card,
+  .bottom-card {
+    position: absolute;
+    width: 100%;
+  }
+  .top-card {
+    border-bottom-right-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    height: 83px;
+    padding: 25px;
+    z-index: 1;
+  }
+  .top-card div {
+    position: relative;
+  }
+  .card-icon {
+    position: absolute;
+    top: -25px;
+    right: 5px;
+  }
+  .bottom-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 125px;
+    margin-top: 38px;
+    width: 100%;
+    z-index: 2;
+  }
+  .bottom-card__content-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 24px;
+  }
+  .bottom-card .bottom-card__content-container:nth-child(1) {
+    margin-bottom: 6px;
+  }
+  .title {
+    font-weight: 500;
+    font-size: 1.125rem;
+  }
+  .current-hours {
+    font-weight: 300;
+    font-size: 2rem;
+  }
+  .previous-hours {
+    color: hsl(236, 100%, 87%);
+    font-size: 0.938rem;
+  }
+</style>
