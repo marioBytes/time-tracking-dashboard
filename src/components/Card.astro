@@ -19,7 +19,7 @@ if (backgroundColor === 'orange') {
 }
 ---
 
-<div class={`card ${bgColor} ${className}`}>
+<div class={`card ${bgColor ? bgColor : ''} ${className ? className : ''}`}>
   <slot />
 </div>
 
