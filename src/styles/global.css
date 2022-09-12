@@ -32,4 +32,33 @@ body {
   width: 80%;
 }
 
+.tabs-header {
+  align-items: center;
+  color: var(--desaturated-blue);
+  display: flex;
+  height: 70px;
+  justify-content: space-around;
+  list-style: none;
+  margin-top: 5px;
+}
+
+.tabs-header li {
+  cursor: pointer;
+}
+
+.tabs-header li:hover {
+  color: var(--desaturated-blue);
+  filter: brightness(150%);
+}
+
+.active-tab {
+  color: #ffffff;
+}
+
+.tabs-header .active-tab:hover {
+  color: #ffffff;
+  cursor: default;
+  filter: unset;
+}
+
 @media (min-width: 1440px) {}

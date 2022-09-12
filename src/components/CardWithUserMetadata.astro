@@ -1,5 +1,6 @@
 ---
 import Card from './Card.astro';
+import Tabs from '../components/Tabs';
 
 import jeremy from '../images/image-jeremy.png';
 ---
@@ -15,11 +16,7 @@ import jeremy from '../images/image-jeremy.png';
     </div>
   </Card>
   <Card className="bottom-card">
-    <div class="selection">
-      <p class="">Daily</p>
-      <p class="">Weekly</p>
-      <p class="active">Monthly</p>
-    </div>
+    <Tabs client:load headings={['Daily', 'Weekly', 'Monthly']} />
   </Card>
 </article>
 
